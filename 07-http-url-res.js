@@ -22,6 +22,16 @@ server.on('request', (req, res) => {
     res.end('index page')
   }  else if (url === '/login') {
     res.end('login page')
+  }else if (url === '/products') {
+      var products =[
+          { name: '苹果X', price: 888 },
+          { name: '菠萝X', price: 5000 },
+          { name: '小辣椒X', price: 1999 }
+      ]
+
+      // 响应内容只能是二进制数据或者字符串，其他数据都不可以
+      res.end(JSON.stringify(products))
+
   } else {
     res.end('404 not found')
   }
